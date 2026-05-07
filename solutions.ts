@@ -102,7 +102,7 @@ class Student extends Person {
 const student = new Student("Alice", 20, "A");
 console.log(student.getDetails());
 
-// Problem 6
+// Problem 7
 
 function getIntersection(arr1: number[], arr2: number[]): number[] {
   const sets = new Set(arr2);
