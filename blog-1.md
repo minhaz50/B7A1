@@ -11,7 +11,7 @@ Generics in TypeScript allow us to create reusable functions, classes, and compo
 Without generics, if you wanted a function to work with any data type, we might use (any). (any) effectively turns off the TypeScript compiler, leading to potential runtime errors because the "connection" between the input type and return type is lost.
 
 Example:
-function typeAny (item : any) : anu { </br>
+function typeAny (item : any) : any { </br>
 return item; </br>
 }
 
@@ -19,11 +19,11 @@ return item; </br>
 
 Generics use a special variable (conventionally <T>) to capture the type provided by the caller.
 
-function itemType <T> (item: T) : T {
-return item;
+function itemType <T> (item: T) : T { </br>
+return item; </br>
 }
 
-const result = itemType <sting> ("hello") // T is now sting
+const result = itemType <sting> ("hello") // T is now sting </br>
 const count = itemType <number> (20);; // T is now number
 
 # Why This Makes Code Reusable
