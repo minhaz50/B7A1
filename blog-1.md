@@ -39,3 +39,64 @@ custom types
 without rewriting the logic.
 
 we write the function once and reuse it everywhere.
+
+# Object Example
+
+function getData<T>(data: T): T { </br>
+return data; </br>
+}
+
+const user = getData({ </br>
+name: "Minhaz", </br>
+age: 28, </br>
+});
+
+TypeScript automatically understands: </br>
+
+user.name
+user.age
+
+and provides correct typing + autocomplete. </br>
+
+# Generic Array Example
+
+function firstElement<T>(arr: T[]): T { </br>
+return arr[0]; </br>
+}
+
+Usage:
+
+const num = firstElement([1, 2, 3]);
+
+TypeScript infers:
+
+num → number
+
+# Generic Constraints
+
+Sometimes we want flexibility, but with rules.
+
+Example:
+
+function printLength<T extends { length: number }>(item: T) {</br>
+console.log(item.length); </br>
+}
+
+This works:
+
+printLength("hello"); </br>
+printLength([1, 2, 3]);
+
+But this fails:
+
+printLength(100);
+
+Because numbers do not have a length property.
+
+The main benift of Generics:
+
+1.  Write reusable code. </br>
+2.  Maintain strict type safety. </br>
+3.  Get better autocomplete. </br>
+4.  Catch error at compile time. </br>
+5.  Avoid using any. <br/>
