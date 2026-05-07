@@ -101,24 +101,25 @@ It allows you to write generic code that works with a base type, but behaves dif
 ### Reducing Complexity:
 
 It eliminates long if/else or switch chains. Instead of checking "if type is A do this, if type is B do that," you simply call the method, and the correct implementation runs automatically.
-typescript
 
-class Shape { </br>
-draw() { console.log("Drawing a shape"); } </br>
-} </br>
-
-class Circle extends Shape { </br>
-draw() { console.log("Drawing a circle"); } // Override </br>
-} </br>
-
-class Square extends Shape { </br>
-draw() { console.log("Drawing a square"); } // Override </br>
+```
+class Shape {
+draw() { console.log("Drawing a shape"); }
 }
 
-// Complex logic becomes simple iteration </br>
+class Circle extends Shape {
+draw() { console.log("Drawing a circle"); } // Override
+}
 
-const shapes: Shape[] = [new Circle(), new Square()]; </br>
+class Square extends Shape {
+draw() { console.log("Drawing a square"); } // Override
+}
+
+// Complex logic becomes simple iteration
+
+const shapes: Shape[] = [new Circle(), new Square()];
 shapes.forEach(shape => shape.draw()); // No 'if' statements needed
+```
 
 ### In a large-scale TypeScript project:
 
