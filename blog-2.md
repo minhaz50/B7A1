@@ -23,8 +23,8 @@ Developers don't need to understand how a class works internally to use it. They
 Example: A DatabaseService class handles connection pooling, retries, and authentication internally. Other parts of the app just call db.save(data). They don't need to know the complex logic of connection management.
 typescript
 
-class BankAccount { </br>
-private balance: number = 0; // Hidden from outside </br>
+class BankAccount {
+private balance: number = 0; // Hidden from outside
 
     deposit(amount: number): void {  </br>
         if (amount > 0) this.balance += amount; </br>
@@ -34,7 +34,7 @@ private balance: number = 0; // Hidden from outside </br>
         return this.balance; </br>
     }
 
-}
+} </br>
 // We cannot directly set 'balance' to -100. Logic is protected.
 
 ## 2. Abstraction: "Simplifying Interactions"
@@ -48,18 +48,20 @@ By using TypeScript interfaces or abstract classes, you define contracts. You ca
 ### Reducing Complexity:
 
 It reduces code dependency. If the business logic depends on abstractions (interfaces) rather than concrete classes, you can swap out implementations (e.g., switching from a testing database to a real one) without breaking the application.
-typescript
 
-Code exapmple:
+Code example:
 
-interface NotificationService { </br>
-send(message: string): void; </br>
-} </br>
-// The logic doesn't care if it's email or SMS, just that it sends.</br>
-
-class EmailNotification implements NotificationService {</br>
-send(message: string) </br>
+```
+interface NotificationService {
+send(message: string): void;
 }
+
+// The logic doesn't care if it's email or SMS, just that it sends.
+
+class EmailNotification implements NotificationService {
+send(message: string)
+}
+```
 
 ## 3. Inheritance: "Reusing Logic"
 
@@ -74,17 +76,19 @@ It eliminates code duplication. Common logic is defined once in a "base class" a
 It allows for logical hierarchies. For example, a generic User class handles basic profile logic. AdminUser and CustomerUser inherit from it and add their own specific features. This keeps the base logic clean and focused.
 typescript
 
-class Animal { </br>
-move() { </br>
-console.log("Moving..."); </br>
-} </br>
+```
+class Animal {
+move() {
+console.log("Moving...");
+}
 }
 
-class Dog extends Animal {</br>
-bark() { console.log("Woof!"); } </br>
-} </br>
-
+class Dog extends Animal {
+bark() { console.log("Woof!"); }
+}
 // Dog automatically has 'move' logic without rewriting it.
+
+```
 
 ## 4. Polymorphism: "Flexibility and Extensibility"
 
@@ -122,3 +126,7 @@ shapes.forEach(shape => shape.draw()); // No 'if' statements needed
 2. Abstraction ensures different teams can work on different modules without knowing each other's internal logic (using Interfaces). </br>
 3. Inheritance prevents code duplication. </br>
 4. Polymorphism makes your code flexible enough to add new features without rewriting old logic.
+
+```
+
+```
