@@ -127,7 +127,3 @@ shapes.forEach(shape => shape.draw()); // No 'if' statements needed
 2. Abstraction ensures different teams can work on different modules without knowing each other's internal logic (using Interfaces). </br>
 3. Inheritance prevents code duplication. </br>
 4. Polymorphism makes your code flexible enough to add new features without rewriting old logic.
-
-```
-
-```
